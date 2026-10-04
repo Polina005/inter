@@ -1,0 +1,8 @@
+n = int(input("Введите число n: "))
+digits_n = set(str(n))
+m = n + 1
+while True:
+    if not (set(str(m)) & digits_n):
+        break
+    m += 1
+print("Наименьшее m:", m)
