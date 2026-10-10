@@ -1,0 +1,23 @@
+N = int(input("Введите количество команд: "))
+
+teams = {}
+for _ in range(N):
+    line = input().split()
+    name = line[0]
+    points = int(line[1])
+    teams[name] = points
+
+try:
+    while True:
+        line = input()
+        if not line.strip():
+            break
+        parts = line.split()
+        team1, team2, result = parts[0], parts[1], parts[2]
+except EOFError:
+    pass
+
+sorted_teams = sorted(teams.items(), key=lambda x: (-x[1], x[0]))
+
+for name, points in sorted_teams:
+    print(name, points)
