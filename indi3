@@ -1,0 +1,20 @@
+N = int(input("Введите количество абонентов: "))
+
+subscribers = {}
+for _ in range(N):
+    parts = input().split()
+    name = parts[0]
+    allowed_actions = set(parts[1:])
+    subscribers[name] = allowed_actions
+
+M = int(input("Введите количество запросов: "))
+
+for _ in range(M):
+    parts = input().split()
+    action = parts[0]
+    name = parts[1]
+
+    if name in subscribers and action in subscribers[name]:
+        print("OK")
+    else:
+        print("Error")
